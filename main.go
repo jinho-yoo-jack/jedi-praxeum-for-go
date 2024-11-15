@@ -21,4 +21,19 @@ func main() {
 	}
 	var house house2.Home = house2.Home{Address: "경기도 군포시 당정동", Size: 29, Price: 9.8, Type: "아파트"}
 	fmt.Println(house)
+
+	var a int
+	var p *int
+	p = &a
+	*p = 29
+	fmt.Println("Memory Address ::: ", *p)
+	fmt.Println("a is ", *p)
+	fmt.Println("a is ", a)
+
+	var a1 int = 10
+	//var b1 float32 = 1.1
+	p1 := &a1
+	var p2 *int = &a1
+	fmt.Println("Memory Address ::: ", p1)
+	fmt.Printf("p1 == p2 : %v\n", p1 == p2)
 }
