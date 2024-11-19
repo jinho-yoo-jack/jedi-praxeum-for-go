@@ -36,4 +36,12 @@ func main() {
 	var p2 *int = &a1
 	fmt.Println("Memory Address ::: ", p1)
 	fmt.Printf("p1 == p2 : %v\n", p1 == p2)
+
+	var x int = 3
+	var y int = 2
+	var px *int = &x
+	var py *int = &y
+	fmt.Printf("Memory Address ::: %d", *px+*py)
+	//fmt.Printf("Memory Address ::: %s, %s", p1, p2)
+
 }
