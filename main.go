@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	bank "main/method_example"
 	house2 "main/struct_example"
 	direction "main/switch_function"
 )
@@ -44,4 +45,37 @@ func main() {
 	fmt.Printf("Memory Address ::: %d", *px+*py)
 	//fmt.Printf("Memory Address ::: %s, %s", p1, p2)
 
+	fmt.Println("============ Slice ==================")
+	array := [5]int{1, 2, 3, 4, 5}
+	slice := array[1:2]
+
+	fmt.Println("array:", array)
+	fmt.Println("slice:", slice, len(slice), cap(slice))
+
+	array[1] = 100
+
+	fmt.Println("array:", array)
+	fmt.Println("slice:", slice, len(slice), cap(slice))
+
+	account := bank.Account{}
+	account1 := &account
+	fmt.Printf("account1 ::: %p", account1)
+	fmt.Printf("account ::: %p", account)
+	account.Deposit(100)
+	account1.WithDraw(50)
+	fmt.Println("1 ::: ", account.GetBalance())
+	fmt.Println("2 ::: ", account1.GetBalance())
+	account.WithDraw(20)
+	fmt.Println("3 ::: ", account.GetBalance())
+	fmt.Println("4 ::: ", account1.GetBalance())
+	balance := account.WithDrawByValue(30)
+	fmt.Println("5 ::: ", account.GetBalance())
+	fmt.Println("6 ::: ", account1.GetBalance())
+	fmt.Println("7 ::: ", balance)
+	bank.WithDrawFunc(&account, 30)
+	fmt.Println(account.GetBalance())
+
+	newAccount := bank.NewAccount("id", "black")
+	newAccount.Deposit(1000)
+	fmt.Println(newAccount.GetBalance())
 }
