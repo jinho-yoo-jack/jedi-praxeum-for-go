@@ -23,6 +23,8 @@ type Account struct {
 	balance int
 }
 
+// NewAccount
+// Constructor Of Account
 func NewAccount(id string, owner string) *Account {
 	return &Account{id: id, owner: owner, balance: 0}
 }
